@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const userRouter = require("./routes/user.route");
+const postRouter = require("./routes/post.route");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -19,6 +20,8 @@ app.get("/", (req, res) => {
 
 // custom  router
 app.use("/api", userRouter);
+
+app.use("/api", postRouter);
 
 app.listen(PORT, () => {
   console.log(`server is running on http://localhost:${PORT}`);
